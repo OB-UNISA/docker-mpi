@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "MPI compile active file (mpicc)",
+            "command": "docker run --rm -it -v ${workspaceRoot}:/project ghcr.io/ob-unisa/docker-mpi:master mpicc -g /project/${relativeFile} -o /project/${relativeFileDirname}/${fileBasenameNoExtension}",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": [
+                "$eslint-compact"
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "MPI run active file (mpicc && mpirun)",
+            "command": "docker run --rm -it -v ${workspaceRoot}:/project ghcr.io/ob-unisa/docker-mpi:master mpirun --allow-run-as-root -np ${input:np} /project/${relativeFileDirname}/${fileBasenameNoExtension}",
+            "dependsOn": [
+                "MPI compile active file (mpicc)"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": [
+                "$eslint-compact"
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "np",
+            "description": "Number of processes:",
+            "default": "4",
+            "type": "promptString"
+        }
+    ]
+}
