@@ -4,10 +4,30 @@ This project provides a Docker container for an HPC environment based on OpenMPI
 
 ## Use Docker Container
 
+Run the container in a directory where you have your C files to compile and run.
+
+### Run the container from public image
+You can use a public docker image which requires no cloning and building. The image is available for amd64 and arm64.
+```shell
+docker run --rm -it -v $(pwd):/project ghcr.io/ob-unisa/docker-mpi:master
+```
+
 ### Build the image
+Alternatively, you can build the image locally.
+```shell
+git clone https://github.com/OB-UNISA/docker-mpi
+cd docker-mpi
+docker build --no-cache -t dockermpi .
+```
 
-`docker build --no-cache -t dockermpi .`
+#### Run the container from local build
+```shell
+docker run --rm -it -v $(pwd):/project dockermpi
+```
 
-### Run the container
-`docker run --rm -it -v $(pwd):/project dockermpi `
+## Visual Studio Code Tasks
+[tasks.json](.vscode/tasks.json) can be saved in `<my-repo>/.vscode/tasks.json` of any repository to quickly run `mpicc` and `mpirun` on a file in Visual Studio Code.
 
+The tasks are visibile in `Terminal->Run Task...`
+
+Before running a task, open the target file and keep it in focus.
