@@ -31,3 +31,8 @@ docker run --rm -it -v $(pwd):/project dockermpi
 The tasks are visibile in `Terminal->Run Task...`
 
 Before running a task, open the target file and keep it in focus.
+
+
+## Troubleshooting
+
+- `/usr/bin/ld: cannot open output file` if you get this error when running `mpicc -g file.c -o file`, make sure _user, group and **others**_ have _read_ and _**write**_ permissions to the `file.c`.
