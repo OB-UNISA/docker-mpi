@@ -1,34 +1,13 @@
-# Docker image Ubuntu 18.04 OpenMPI 
+# Docker image Ubuntu 22.04 OpenMPI 
 
 This project provides a Docker container for an HPC environment based on OpenMPI, OpenMP, and Ubuntu Linux.
 
-## Softwares
-
-- Ubuntu 18.04
-- bzip2 
-- cmake 
-- cpio 
-- curl
-- g++ 
-- gcc 
-- gfortran
-- git 
-- gosu
-- libblas-dev 
-- liblapack-dev 
-- libopenmpi-dev 
-- openmpi-bin 
-- python3-dev 
-- python3-pip 
-- virtualenv 
-- wget 
-- zlib1g-dev 
-- vim (preconfigured)
-- htop
-
 ## Use Docker Container
 
-```docker build --no-cache -t dockermpi .```
+### Build the image
 
-```docker run -it -t dockermpi:latest ```
+`docker build --no-cache -t dockermpi .`
+
+### Run the container
+`docker run --rm -it -v $(pwd):/project dockermpi `
 
