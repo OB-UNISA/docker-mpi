@@ -4,7 +4,7 @@
         {
             "type": "shell",
             "label": "MPI compile active file (mpicc)",
-            "command": "docker run --rm -it -v ${workspaceRoot}:/project ghcr.io/ob-unisa/docker-mpi:master mpicc -g /project/${relativeFile} -o /project/${relativeFileDirname}/${fileBasenameNoExtension}",
+            "command": "docker run --rm -it -v ${workspaceRoot}:/project ghcr.io/olegbilovus/docker-mpi:master mpicc -g /project/${relativeFile} -o /project/${relativeFileDirname}/${fileBasenameNoExtension}",
             "presentation": {
                 "reveal": "always"
             },
@@ -15,7 +15,7 @@
         {
             "type": "shell",
             "label": "MPI run active file (mpicc && mpirun)",
-            "command": "docker run --rm -it -v ${workspaceRoot}:/project ghcr.io/ob-unisa/docker-mpi:master mpirun --allow-run-as-root -np ${input:np} /project/${relativeFileDirname}/${fileBasenameNoExtension}",
+            "command": "docker run --rm -it -v ${workspaceRoot}:/project ghcr.io/olegbilovus/docker-mpi:master mpirun --allow-run-as-root -np ${input:np} /project/${relativeFileDirname}/${fileBasenameNoExtension}",
             "dependsOn": [
                 "MPI compile active file (mpicc)"
             ],
