@@ -9,13 +9,13 @@ Run the container in a directory where you have your C files to compile and run.
 ### Run the container from public image
 You can use a public docker image which requires no cloning and building. The image is available for amd64 and arm64.
 ```shell
-docker run --rm -it -v $(pwd):/project ghcr.io/ob-unisa/docker-mpi:master
+docker run --rm -it -v $(pwd):/project ghcr.io/olegbilovus/docker-mpi:master
 ```
 
 ### Build the image
 Alternatively, you can build the image locally.
 ```shell
-git clone https://github.com/OB-UNISA/docker-mpi
+git clone https://github.com/olegbilovus/docker-mpi
 cd docker-mpi
 docker build --no-cache -t dockermpi .
 ```
